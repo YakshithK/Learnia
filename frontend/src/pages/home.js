@@ -5,7 +5,6 @@ import '../App.css';
 import { useNavigate } from 'react-router-dom';
 import { Title } from '../components/title';
 import axios from 'axios'
-import OpenAI from 'openai'
 
 export const Home = () => {
   const navigate = useNavigate();
