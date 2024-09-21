@@ -2,13 +2,13 @@ import React from 'react';
 import '../App.css';
 import { useLocation } from 'react-router-dom';
 import Roadmap from '../components/roadmap';
+import { Container } from '../components/container';
 
 export const Learn = () => {
   const location = useLocation();
   const receivedData = location.state; // this is the data passed from HomePage
 
   const parseRoadmap = (input) => {
-    console.log(input)
     const stages = input.split('\n');  // Splitting the input into lines
     const titles = [];
     const titleIdx = [];
@@ -86,12 +86,11 @@ export const Learn = () => {
   };
 
   const roadmap = parseRoadmap(receivedData?.message);
-  console.log('roadmap', JSON.stringify(roadmap, null, 2));  // For debugging
 
   return (
-    <div>
-      <h1>New Page</h1>
+    <Container>
+      <h1 style={{color: 'black'}}>{receivedData?.title}</h1>
       <Roadmap roadmap={roadmap}/>
-    </div>
+    </Container>
   );
 };
